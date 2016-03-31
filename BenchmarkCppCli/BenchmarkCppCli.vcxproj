@@ -136,10 +136,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Benchmark.h" />
+    <ClInclude Include="CppClass.h" />
     <ClInclude Include="Rdtscp.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Benchmark.cpp" />
+    <ClCompile Include="CppClass.cpp" />
     <ClCompile Include="Rdtscp.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

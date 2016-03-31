@@ -1,6 +1,5 @@
 #include <intrin.h>
-
-#define EXPORT extern "C" __declspec(dllexport)
+#include "Main.h"
 
 EXPORT unsigned long long rdtscp()
 {

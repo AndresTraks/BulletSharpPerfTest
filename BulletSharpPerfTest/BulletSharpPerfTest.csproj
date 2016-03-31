@@ -76,6 +76,9 @@
     <Reference Include="BenchmarkCppCli">
       <HintPath>..\BenchmarkCppCli\x64\Release\BenchmarkCppCli.dll</HintPath>
     </Reference>
+    <Reference Include="BenchmarkPInvoke">
+      <HintPath>..\BenchmarkPInvoke\bin\Release\BenchmarkPInvoke.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>

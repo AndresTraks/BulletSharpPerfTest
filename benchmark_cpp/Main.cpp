@@ -1,4 +1,4 @@
-#define EXPORT extern "C" __declspec(dllexport)
+#include "Main.h"
 
 EXPORT void empty()
 {

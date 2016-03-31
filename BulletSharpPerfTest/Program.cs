@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
-using BenchmarkCppCli;
+//using BenchmarkCppCli;
+using BenchmarkPInvoke;
 
 namespace BulletSharpPerfTest
 {
@@ -23,22 +23,26 @@ namespace BulletSharpPerfTest
                     int v = 1;
                     const int n = 1000000;
                     var results = new List<ulong>(n);
+                    var c = new CppClass();
                     for (int i = 0; i < n; i++)
                     {
                         ulong r = benchmark.Get();
 
                         //Benchmark.Empty();
                         //v = Benchmark.Zero();
-                        v = Benchmark.Identity(3);
+                        //v = Benchmark.Identity(3);
 
-                        //empty();
-                        //v = zero();
-                        //v = identity(3);
+                        //c = new CppClass();
+                        //c.Dispose();
+                        //c.Empty();
+                        //v = c.Zero();
+                        v = c.Identity(3);
 
                         ulong r2 = benchmark.Get();
                         ulong d = r2 - r;
                         results.Add(d);
                     }
+                    c.Dispose();
                     Console.WriteLine(v);
 
                     ulong dd = results.Aggregate((a, s) => a + s);
@@ -55,16 +59,9 @@ namespace BulletSharpPerfTest
                             maxValue = grouping.Key;
                         }
                     }
-                    Console.WriteLine("Mode: {0}", maxValue);
+                    Console.WriteLine($"Mode: {maxValue} ({maxValue - 141})");
                 }
             }
         }
-
-        [DllImport("benchmark.dll")]
-        private static extern void empty();
-        [DllImport("benchmark.dll")]
-        private static extern int zero();
-        [DllImport("benchmark.dll")]
-        private static extern int identity(int n);
     }
 }
